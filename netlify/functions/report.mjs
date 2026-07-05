@@ -16,6 +16,7 @@
 // Env needed: ANTHROPIC_API_KEY, SITE_PASSWORD, SUPABASE_URL, SUPABASE_SERVICE_KEY
 
 const TIERS = {
+  reader:  { model: "claude-sonnet-4-6",         maxTokens: 1400 }, // reads website / analytics screenshots
   writer:  { model: "claude-sonnet-4-6",         maxTokens: 1800 },
   auditor: { model: "claude-haiku-4-5-20251001", maxTokens: 1200 }
 };
@@ -93,6 +94,17 @@ export default async (request) => {
   if (!apiKey) return json({ error: "ANTHROPIC_API_KEY is not set in Netlify" }, 500);
 
   const tier = TIERS[body.tier] || TIERS.writer;
+  let messages;
+  if (body.images && Array.isArray(body.images) && body.images.length) {
+    const content = body.images.map(img => ({
+      type: "image",
+      source: { type: "base64", media_type: img.media_type || "image/png", data: img.data }
+    }));
+    content.push({ type: "text", text: body.prompt || "" });
+    messages = [{ role: "user", content }];
+  } else {
+    messages = [{ role: "user", content: body.prompt || "" }];
+  }
   const upstream = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
     headers: { "x-api-key": apiKey, "anthropic-version": "2023-06-01", "content-type": "application/json" },
@@ -101,7 +113,7 @@ export default async (request) => {
       max_tokens: tier.maxTokens,
       stream: true,
       system: body.system || "",
-      messages: [{ role: "user", content: body.prompt || "" }]
+      messages
     })
   });
   if (!upstream.ok) {

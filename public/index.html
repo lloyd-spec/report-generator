@@ -7,24 +7,27 @@
 <link rel="icon" href="/favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<!-- Anton stands in for Helvetica Neue Condensed Black (the Canva display face);
+     body uses a real Helvetica stack so it renders in true Helvetica on the team's Macs. -->
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" />
 <style>
   :root{
     --navy:#0e1b33; --navy-2:#16264a; --sky:#96d5ec; --sky-deep:#4aa8cc;
     --paper:#f7f5f0; --ink:#1c2536; --ink-soft:#5a6478; --line:#e3e0d8;
     --up:#1e9e5a; --down:#d64533; --flag:#c0392b;
-    --disp:"Archivo Black",sans-serif; --sans:"Inter",sans-serif; --mono:"IBM Plex Mono",monospace;
+    --disp:"Anton",sans-serif;
+    --sans:"Helvetica Neue",Helvetica,Arial,sans-serif;
     --shadow:0 14px 40px -18px rgba(14,27,51,.25);
   }
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
   body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:1120px;margin:0 auto;padding:34px 26px 90px}
+  .wrap{max-width:1120px;margin:0 auto;padding:34px 26px 40px}
 
   #gate{position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;padding:24px;background:var(--navy)}
   .gate-card{max-width:380px;width:100%;text-align:center}
-  .gate-card img{height:58px;width:auto;margin:0 auto 26px;display:block;filter:invert(1) brightness(1.6)}
-  .gate-card h2{color:#fff;font-family:var(--disp);font-size:24px;margin:0 0 8px;letter-spacing:.01em}
+  .gate-card img{height:64px;width:auto;margin:0 auto 26px;display:block;filter:invert(1)}
+  .gate-card h2{color:#fff;font-family:var(--disp);font-size:26px;margin:0 0 8px;letter-spacing:.02em;text-transform:uppercase}
   .gate-card p{color:var(--sky);font-size:14px;margin:0 0 18px}
   .gate-card input{width:100%;text-align:center;padding:12px 14px;border-radius:10px;border:1px solid rgba(150,213,236,.35);background:rgba(255,255,255,.06);color:#fff;font-size:15px;outline:none;margin-bottom:12px}
   .gate-card button{width:100%;padding:12px 14px;border-radius:10px;border:0;background:var(--sky);color:var(--navy);font-weight:700;font-size:15px;cursor:pointer}
@@ -32,17 +35,17 @@
 
   .masthead{background:linear-gradient(135deg,var(--navy),var(--navy-2));border-radius:18px;padding:38px 36px;margin-bottom:30px;box-shadow:var(--shadow);position:relative;overflow:hidden}
   .masthead::after{content:"";position:absolute;right:-70px;top:-70px;width:260px;height:260px;background:radial-gradient(circle,rgba(150,213,236,.35),transparent 70%)}
-  .masthead img{height:44px;width:auto;display:block;margin-bottom:18px;filter:invert(1) brightness(1.6)}
-  .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--sky);margin:0 0 10px}
-  .masthead h1{font-family:var(--disp);font-size:clamp(28px,4.2vw,44px);line-height:1.05;color:#fff;margin:0;text-transform:uppercase}
+  .masthead img{height:46px;width:auto;display:block;margin-bottom:18px;filter:invert(1)}
+  .eyebrow{font-family:var(--sans);font-weight:700;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--sky);margin:0 0 10px}
+  .masthead h1{font-family:var(--disp);font-size:clamp(30px,4.6vw,50px);line-height:1.02;color:#fff;margin:0;text-transform:uppercase;letter-spacing:.01em}
   .masthead h1 em{font-style:normal;color:var(--sky)}
   .masthead p.tag{color:#c9d6ea;margin:14px 0 0;max-width:66ch;font-size:16.5px}
 
   .panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px 30px;margin-bottom:26px;box-shadow:var(--shadow)}
-  .panel h2{font-family:var(--disp);font-size:20px;margin:0 0 4px;color:var(--navy);text-transform:uppercase;letter-spacing:.01em}
+  .panel h2{font-family:var(--disp);font-size:22px;margin:0 0 4px;color:var(--navy);text-transform:uppercase;letter-spacing:.02em}
   .panel .sub{color:var(--ink-soft);font-size:14px;margin:0 0 20px}
-  .steplab{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sky-deep);margin:0 0 6px}
-  label.f{display:block;font-weight:600;font-size:13.5px;margin:16px 0 6px;color:var(--navy)}
+  .steplab{font-weight:700;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sky-deep);margin:0 0 6px}
+  label.f{display:block;font-weight:700;font-size:13.5px;margin:16px 0 6px;color:var(--navy)}
   .hint{font-size:12.5px;color:var(--ink-soft);margin:5px 0 0}
   input[type=text],input[type=month],textarea,select{width:100%;font-family:inherit;font-size:15px;padding:11px 13px;border:1px solid var(--line);border-radius:10px;background:#fcfbf8;color:var(--ink);outline:none}
   textarea{resize:vertical;min-height:64px}
@@ -56,23 +59,33 @@
   .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--navy);font-weight:600}
   .btn:disabled{opacity:.5;cursor:default}
   .btnrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:20px}
-  .togs{display:flex;gap:18px;flex-wrap:wrap;margin-top:8px}
-  .togs label{display:flex;align-items:center;gap:8px;font-size:14.5px;font-weight:600;color:var(--navy);cursor:pointer}
+  .togs{display:flex;gap:16px 20px;flex-wrap:wrap;margin-top:8px}
+  .togs label{display:flex;align-items:center;gap:8px;font-size:14.5px;font-weight:700;color:var(--navy);cursor:pointer}
+
+  .secblock{border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-top:16px;background:#fcfbf8}
+  .secblock h3{font-family:var(--disp);font-size:15px;text-transform:uppercase;letter-spacing:.03em;color:var(--navy);margin:0 0 4px}
+  .secblock .hint{margin-bottom:8px}
+
   .socgrid{display:grid;grid-template-columns:110px 1fr 1fr 1fr;gap:10px 12px;align-items:center;margin-top:12px}
-  .socgrid .h{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+  .socgrid .h{font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
   .cellpair{display:flex;gap:6px}
   .cellpair input{flex:1;padding:8px 10px;font-size:14px}
   .cellpair select{width:56px;padding:8px 6px;font-size:14px}
   @media(max-width:760px){.socgrid{grid-template-columns:80px 1fr 1fr 1fr}}
 
-  #status{font-family:var(--mono);font-size:13px;color:var(--sky-deep);margin:6px 0 20px;min-height:20px}
+  .drop{border:2px dashed var(--line);border-radius:10px;padding:18px;text-align:center;color:var(--ink-soft);font-size:13.5px;cursor:pointer;background:#fff;margin-top:8px}
+  .drop.on{border-color:var(--sky-deep);background:#f0f8fc}
+  .thumbs{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .thumbs img{height:52px;border-radius:6px;border:1px solid var(--line)}
+
+  #status{font-weight:600;font-size:13px;color:var(--sky-deep);margin:6px 0 20px;min-height:20px}
   #status .done{color:var(--up)}
   .err{background:#fdf2f0;border:1px solid #eecfc9;color:#7c2d21;padding:14px 18px;border-radius:12px;font-size:14px;margin-top:18px}
   .flagged{color:var(--flag);font-weight:600}
 
-  /* Report pages */
   #doc{display:none}
-  .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 22px}
+  .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 14px;align-items:center}
+  .editnote{font-size:12.5px;color:var(--ink-soft)}
   .rp{border-radius:18px;overflow:hidden;margin-bottom:26px;box-shadow:var(--shadow);background:#fff;border:1px solid var(--line)}
   .rp .inner{padding:46px 50px}
   @media(max-width:700px){.rp .inner{padding:30px 24px}}
@@ -80,34 +93,43 @@
   .rp.dark{background:#0b0d10;color:#fff;border:0;position:relative}
   .rp.dark::before{content:"NEWS PRESS STORY HEADLINE EXCLUSIVE REPORT FEATURE COVERAGE MEDIA PRINT DIGITAL BROADCAST";position:absolute;inset:-20px;color:rgba(255,255,255,.05);font-family:var(--disp);font-size:64px;line-height:1.05;letter-spacing:.02em;transform:rotate(-6deg);pointer-events:none;white-space:normal;overflow:hidden}
   .rp.dark .inner{position:relative}
-  .rph{font-family:var(--disp);font-size:clamp(26px,3.6vw,38px);text-transform:uppercase;margin:0 0 8px;letter-spacing:.01em}
+  .rph{font-family:var(--disp);font-size:clamp(28px,3.6vw,40px);text-transform:uppercase;margin:0 0 8px;letter-spacing:.02em;font-weight:400}
   .rprule{width:120px;height:3px;background:currentColor;opacity:.9;margin:0 0 26px}
-  .cover-title{font-family:var(--disp);text-transform:uppercase;line-height:.98;font-size:clamp(44px,7vw,84px);margin:0}
+  .cover-title{font-family:var(--disp);text-transform:uppercase;line-height:.94;font-size:clamp(46px,7.5vw,90px);margin:0;letter-spacing:.01em;font-weight:400}
   .cover-title .skyline{color:var(--sky)}
-  .cover-month{font-family:var(--disp);text-transform:uppercase;font-size:clamp(20px,3vw,30px);border-top:3px solid #fff;border-bottom:3px solid #fff;display:inline-block;padding:10px 2px;margin-top:26px}
+  .cover-month{font-family:var(--disp);text-transform:uppercase;font-size:clamp(20px,3vw,32px);border-top:3px solid #fff;border-bottom:3px solid #fff;display:inline-block;padding:10px 2px;margin-top:26px;font-weight:400}
   .hl{background:var(--sky);border-radius:10px;padding:20px 24px;margin:26px 0;color:var(--navy)}
   .hl h4{margin:0 0 10px;font-size:15px;font-weight:800}
   .hl ul{margin:0;padding-left:18px}
-  .hl li{margin:0 0 7px;color:#1e7a4f;font-weight:500}
+  .hl li{margin:0 0 7px;color:#1e7a4f;font-weight:600}
   .prep{border:1.5px solid var(--line);border-radius:12px;padding:16px 20px;display:inline-block;font-size:14.5px;background:#fff;color:var(--ink)}
-  .prep b{display:inline-block;min-width:130px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+  .prep b{display:inline-block;min-width:130px;font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
   .strap{background:var(--navy);color:var(--sky);border-radius:10px;padding:18px 22px;font-weight:700;margin-top:24px}
   .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0}
   @media(max-width:700px){.tiles{grid-template-columns:1fr 1fr}}
   .tile{background:var(--sky);color:var(--navy);border-radius:8px;padding:20px 16px;text-align:center}
-  .tile .v{font-family:var(--disp);font-size:clamp(22px,3vw,34px);line-height:1}
-  .tile .k{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;margin-top:9px;font-weight:600}
-  .covlink{font-family:var(--disp);text-transform:uppercase;font-size:clamp(16px,2.4vw,24px);text-decoration:underline;color:inherit;letter-spacing:.01em}
+  .tile .v{font-family:var(--disp);font-size:clamp(24px,3vw,36px);line-height:1;font-weight:400}
+  .tile .k{font-weight:700;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-top:9px}
+  .covlink{font-family:var(--disp);text-transform:uppercase;font-size:clamp(16px,2.4vw,24px);text-decoration:underline;color:inherit;letter-spacing:.02em;font-weight:400}
   .soctab{width:100%;border-collapse:collapse;margin-top:24px;font-size:15px}
-  .soctab th{font-family:var(--disp);text-transform:uppercase;font-size:13px;background:#fff;color:var(--navy);padding:10px 12px;text-align:left;border:2px solid var(--navy)}
+  .soctab th{font-family:var(--disp);text-transform:uppercase;font-size:14px;background:#fff;color:var(--navy);padding:10px 12px;text-align:left;border:2px solid var(--navy);font-weight:400;letter-spacing:.02em}
   .soctab td{padding:12px;border:1px solid rgba(255,255,255,.4);text-align:center;font-weight:700}
   .soctab td.up{color:#7ef0ae}
   .soctab td.down{color:#ff9d8d}
   .rp.plain .soctab td{border-color:var(--line)}
-  .thanks-contact{margin-top:34px;font-size:15px;line-height:2}
-  #doc [contenteditable]{outline:none}
-  #doc.editing .inner{outline:1px dashed var(--sky-deep);outline-offset:8px}
+  .thanks-logo{height:52px;width:auto;filter:invert(1);display:block;margin-bottom:26px}
+  .thanks-contact{margin-top:30px;font-size:15px;line-height:2}
+  #doc [contenteditable="true"]{outline:none}
+  #doc.showedit .inner{outline:1px dashed var(--sky-deep);outline-offset:8px}
+
   .lib .item{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:11px 4px;border-bottom:1px solid var(--line);font-size:14.5px}
+
+  .site-footer{display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;padding:34px 4px 10px;margin:30px 0 0;border-top:1px solid var(--line)}
+  .footer-brand{display:flex;flex-direction:column;gap:12px;max-width:44ch}
+  .footer-logo{height:42px;width:auto;align-self:flex-start;display:block}
+  .footer-line{font-size:14.5px;color:var(--ink-soft);margin:0}
+  .footer-line b{color:var(--navy)}
+  .gptw-badge{height:104px;width:auto;display:block;flex:none}
 
   #toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;font-size:14px;padding:12px 20px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:40}
   #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
@@ -115,10 +137,11 @@
   @media print{
     body{background:#fff}
     .wrap{max-width:none;padding:0}
-    .masthead,.panel,.toolbar,#status,#gate,#toast{display:none !important}
+    .masthead,.panel,.toolbar,#status,#gate,#toast,.site-footer{display:none !important}
     #doc{display:block !important}
+    #doc.showedit .inner{outline:0 !important}
     .rp{box-shadow:none;border-radius:0;margin:0;page-break-after:always;border:0}
-    .rp.navy,.rp.dark,.hl,.tile,.strap{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .rp.navy,.rp.dark,.hl,.tile,.strap,.cover-month{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   }
 </style>
 </head>
@@ -126,7 +149,7 @@
 
 <div id="gate">
   <div class="gate-card">
-    <img src="/picpr-navy.png" alt="Pic PR" />
+    <img src="/picpr-logo.png" alt="Pic PR" />
     <h2>Monthly Report Generator</h2>
     <p>Enter the team password to continue.</p>
     <input type="password" id="pw" placeholder="Password" autocomplete="current-password" />
@@ -138,10 +161,10 @@
 <div class="wrap" id="app" style="display:none">
 
   <header class="masthead">
-    <img src="/picpr-navy.png" alt="Pic PR" />
+    <img src="/picpr-logo.png" alt="Pic PR" />
     <p class="eyebrow">Pic PR Insight</p>
     <h1>Your <em>monthly report</em> generator</h1>
-    <p class="tag">Builds the end-of-month client report in the Pic PR template - overview and key highlights, PR in numbers, coverage breakdown, social performance and sign-off. Coverage figures pull straight from the Coverage Dashboard, and nothing is ever written that you have not confirmed.</p>
+    <p class="tag">Rough bullets in, finished report out - in the Pic PR template. Coverage figures pull straight from the Coverage Dashboard, the writing is fleshed out for you, and nothing is ever stated that you have not confirmed.</p>
   </header>
 
   <section class="panel">
@@ -162,76 +185,97 @@
         <input type="text" id="preparedBy" placeholder="e.g. Lloyd Hughes" />
       </div>
     </div>
-    <div class="btnrow">
-      <button class="btn ghost" id="pullBtn">Pull coverage from the dashboard</button>
-      <span class="hint" id="pullNote"></span>
-    </div>
-    <label class="f">Sections to include</label>
+    <label class="f">Which services to report on this month</label>
     <div class="togs">
       <label><input type="checkbox" id="secAccount" checked /> Account management</label>
-      <label><input type="checkbox" id="secWebsite" /> Website performance</label>
-      <label><input type="checkbox" id="secSocial" checked /> Social team</label>
+      <label><input type="checkbox" id="secPR" checked /> PR</label>
+      <label><input type="checkbox" id="secDesign" /> Design</label>
+      <label><input type="checkbox" id="secStrategy" /> Strategy</label>
+      <label><input type="checkbox" id="secWebsite" /> Website</label>
+      <label><input type="checkbox" id="secSocial" checked /> Social</label>
     </div>
+    <p class="hint">Tick only what you worked on. Each ticked service becomes a section in the report.</p>
   </section>
 
   <section class="panel">
     <p class="steplab">Step 2 of 3</p>
-    <h2>The numbers and the notes</h2>
-    <p class="sub">Everything the report says comes from what you put here. The PR figures fill themselves in if you pulled from the dashboard - check them, they are still yours to correct.</p>
+    <h2>The numbers and the bullets</h2>
+    <p class="sub">Keep it light. Type rough bullet points and the generator writes them up in the house style. The only things that must be exact are the figures, because those go to the client as fact.</p>
 
-    <label class="f">PR in numbers</label>
-    <div class="grid4">
-      <div><input type="text" id="nReleases" placeholder="Press releases" /><p class="hint">Press releases drafted</p></div>
-      <div><input type="text" id="nCoverage" placeholder="Coverage" /><p class="hint">Pieces of coverage</p></div>
-      <div><input type="text" id="nReach" placeholder="Reach" /><p class="hint">Potential audience reach</p></div>
-      <div><input type="text" id="nDA" placeholder="Avg DA" /><p class="hint">Average domain authority</p></div>
-    </div>
-    <div class="grid4">
-      <div><input type="text" id="nAwards" placeholder="Awards" /><p class="hint">Award submissions (optional)</p></div>
-      <div><input type="text" id="covUrl" placeholder="https://..." /><p class="hint">Full coverage table link (optional)</p></div>
-    </div>
-
-    <label class="f" for="activity">The month's PR activity - notes for the writer</label>
-    <textarea id="activity" rows="4" placeholder="e.g. Bi-weekly calls with Soni continued. Focus on timely stories via WhatsApp content. Entered the Care Home Catering Awards x1 (Group Caterer of the Year) and the LaingBuisson Awards x4. Standout coverage was the Pretty Muddy story in the Birmingham Mail."></textarea>
-
-    <label class="f" for="releases">Press releases drafted (one per line)</label>
-    <textarea id="releases" rows="4" placeholder="Opening of Bilbrook Rose (Consumer)&#10;Millfield Rose fish and chip Friday&#10;Wyrley Rose choir"></textarea>
-
-    <label class="f" for="covBreak">Coverage breakdown by media type (one per line: type, reach, note)</label>
-    <textarea id="covBreak" rows="3" placeholder="Regional &amp; Local | 5.6M reach | Key coverage across Birmingham Mail and Leighton Buzzard Observer&#10;Specialist &amp; Trade | 1,628 reach | Anas's award shortlisting in Care Home Management"></textarea>
-
-    <div id="accountWrap">
-      <label class="f" for="accountNotes">Account management notes</label>
-      <textarea id="accountNotes" rows="3" placeholder="e.g. Bi-weekly calls held throughout the month to align on actions and maximise content across press, social, website and blog channels."></textarea>
+    <div class="secblock" id="blkPR">
+      <h3>PR</h3>
+      <div class="grid4">
+        <div><input type="text" id="nReleases" placeholder="e.g. 8" /><p class="hint">Press releases</p></div>
+        <div><input type="text" id="nCoverage" placeholder="e.g. 5" /><p class="hint">Pieces of coverage</p></div>
+        <div><input type="text" id="nReach" placeholder="e.g. 5,639,968" /><p class="hint">Potential reach</p></div>
+        <div><input type="text" id="nDA" placeholder="e.g. 57" /><p class="hint">Avg domain authority</p></div>
+      </div>
+      <div class="grid4">
+        <div><input type="text" id="nAwards" placeholder="e.g. 11" /><p class="hint">Award submissions (optional)</p></div>
+        <div style="grid-column:span 3"><input type="text" id="covUrl" placeholder="https://..." /><p class="hint">Full coverage table link (optional)</p></div>
+      </div>
+      <div class="btnrow" style="margin-top:12px">
+        <button class="btn ghost" id="pullBtn">Pull coverage from the dashboard</button>
+        <span class="hint" id="pullNote"></span>
+      </div>
+      <label class="f" for="prBullets">PR activity - rough bullets</label>
+      <textarea id="prBullets" rows="4" placeholder="- bi-weekly calls with Soni, stories via WhatsApp&#10;- entered Care Home Catering Awards x1 and LaingBuisson x4&#10;- standout: Pretty Muddy story in the Birmingham Mail"></textarea>
+      <label class="f" for="releases">Press releases drafted - one per line (optional)</label>
+      <textarea id="releases" rows="3" placeholder="Opening of Bilbrook Rose (Consumer)&#10;Millfield Rose fish and chip Friday&#10;Wyrley Rose choir"></textarea>
+      <label class="f" for="covBreak">Coverage breakdown - one per line: type | reach | note (optional)</label>
+      <textarea id="covBreak" rows="2" placeholder="Regional &amp; Local | 5.6M | Birmingham Mail and Leighton Buzzard Observer&#10;Specialist &amp; Trade | 1,628 | Anas's award shortlisting in Care Home Management"></textarea>
     </div>
 
-    <div id="websiteWrap" style="display:none">
-      <label class="f">Website performance (leave blank what you do not have)</label>
+    <div class="secblock" id="blkAccount">
+      <h3>Account management</h3>
+      <label class="f" for="accountBullets" style="margin-top:2px">Rough bullets</label>
+      <textarea id="accountBullets" rows="3" placeholder="- bi-weekly calls to align on actions&#10;- content maximised across press, social, website and blogs&#10;- WhatsApp content managed for quick turnaround"></textarea>
+    </div>
+
+    <div class="secblock" id="blkDesign" style="display:none">
+      <h3>Design</h3>
+      <label class="f" for="designBullets" style="margin-top:2px">Rough bullets - what was designed this month</label>
+      <textarea id="designBullets" rows="3" placeholder="- new welcome brochure for Bilbrook Rose&#10;- social graphics templates refreshed&#10;- event signage for the summer fete"></textarea>
+    </div>
+
+    <div class="secblock" id="blkStrategy" style="display:none">
+      <h3>Strategy</h3>
+      <label class="f" for="strategyBullets" style="margin-top:2px">Rough bullets - strategy work this month</label>
+      <textarea id="strategyBullets" rows="3" placeholder="- audience segmentation refreshed with new Experian data&#10;- messaging hierarchy agreed for the national push&#10;- Q3 campaign calendar drafted"></textarea>
+    </div>
+
+    <div class="secblock" id="blkWebsite" style="display:none">
+      <h3>Website</h3>
       <div class="grid4">
         <div><input type="text" id="wUsers" placeholder="New users" /><p class="hint">New users</p></div>
         <div><input type="text" id="wReturning" placeholder="Returning" /><p class="hint">Returning users</p></div>
-        <div><input type="text" id="wEngage" placeholder="Engagement" /><p class="hint">Engagement rate / time</p></div>
+        <div><input type="text" id="wEngage" placeholder="Engagement" /><p class="hint">Engagement</p></div>
         <div><input type="text" id="wSessions" placeholder="Sessions" /><p class="hint">Sessions</p></div>
       </div>
-      <label class="f" for="wNotes">Website notes</label>
-      <textarea id="wNotes" rows="2" placeholder="e.g. Organic search remains the biggest channel, with referral traffic lifted by the month's coverage."></textarea>
+      <div class="drop" id="wDrop">Drop an analytics screenshot to read the figures, or click to choose<br /><span style="font-size:12px">GA4, Squarespace, WordPress - up to 3</span></div>
+      <input type="file" id="wFile" accept="image/png,image/jpeg,image/webp" multiple style="display:none" />
+      <div class="thumbs" id="wThumbs"></div>
+      <div class="btnrow" style="margin-top:10px"><button class="btn ghost" id="wReadBtn" disabled>Read the screenshot</button><span class="hint" id="wReadNote"></span></div>
+      <label class="f" for="websiteBullets">Website notes - rough bullets (optional)</label>
+      <textarea id="websiteBullets" rows="2" placeholder="- organic search still the biggest channel&#10;- referral traffic lifted by the month's coverage"></textarea>
     </div>
 
-    <div id="socialWrap">
-      <label class="f">Social performance - value and direction for each</label>
+    <div class="secblock" id="blkSocial">
+      <h3>Social</h3>
+      <label class="f" style="margin-top:2px">Value and direction per platform</label>
       <div class="socgrid" id="socgrid">
         <span></span><span class="h">Facebook</span><span class="h">Instagram</span><span class="h">LinkedIn</span>
       </div>
-      <p class="hint">Direction marks the number green (up) or red (down) in the report table, exactly as the template does.</p>
-      <label class="f" for="socNotes">Social notes</label>
-      <textarea id="socNotes" rows="2" placeholder="e.g. LinkedIn saw a particularly strong uplift. Instagram views dipped but follower growth stayed positive."></textarea>
+      <p class="hint">The direction arrow marks each number green (up) or red (down) in the report table, as the template does.</p>
+      <label class="f" for="socialBullets">Social notes - rough bullets (optional)</label>
+      <textarea id="socialBullets" rows="2" placeholder="- LinkedIn a particularly strong month&#10;- Instagram views dipped but followers still grew"></textarea>
     </div>
   </section>
 
   <section class="panel">
     <p class="steplab">Step 3 of 3</p>
     <h2>Build the report</h2>
-    <p class="sub">Written section by section in the house style, then a figures audit checks nothing crept in that you did not confirm. Click any text to edit once it lands.</p>
+    <p class="sub">Written up section by section in the house style, then a figures audit checks nothing crept in that you did not confirm.</p>
     <div class="btnrow">
       <button class="btn" id="genBtn">Build the monthly report</button>
       <button class="btn ghost" id="libBtn">Past reports</button>
@@ -243,13 +287,23 @@
 
   <div id="doc">
     <div class="toolbar">
-      <button class="btn sky" id="editBtn">Edit report</button>
+      <button class="btn sky" id="editBtn">Show edit outline</button>
+      <span class="editnote">The whole report is editable - click any text and type.</span>
+      <span style="flex:1"></span>
       <button class="btn ghost" id="copyBtn">Copy for Docs</button>
       <button class="btn ghost" id="printBtn">Print / save as PDF</button>
       <button class="btn" id="saveBtn">Save to library</button>
     </div>
     <div id="pages"></div>
   </div>
+
+  <footer class="site-footer" id="siteFooter" style="display:none">
+    <div class="footer-brand">
+      <img class="footer-logo" src="/picpr-logo.png" alt="Pic PR" />
+      <p class="footer-line">A recognised workplace. Pic PR is proud to be <b>Great Place To Work&reg;</b> Certified.</p>
+    </div>
+    <img class="gptw-badge" src="/gptw-badge.png" alt="Great Place To Work Certified. United Kingdom. April 2026 to April 2027." />
+  </footer>
 
 </div>
 
@@ -268,150 +322,150 @@
   function showError(m){$("errbox").innerHTML='<div class="err">'+esc(m)+"</div>";}
   function clearError(){$("errbox").innerHTML="";}
 
-  /* Gate - suite standard */
-  async function validatePassword(pw){
-    try{ var r=await fetch(FN,{method:"POST",headers:{"content-type":"application/json","x-password":pw},body:JSON.stringify({ping:true})}); return r.ok; }catch(e){ return false; }
-  }
-  function openApp(){ $("gate").style.display="none"; $("app").style.display="block"; loadCoverageClients(); }
+  async function validatePassword(pw){try{var r=await fetch(FN,{method:"POST",headers:{"content-type":"application/json","x-password":pw},body:JSON.stringify({ping:true})});return r.ok;}catch(e){return false;}}
+  function openApp(){$("gate").style.display="none";$("app").style.display="block";$("siteFooter").style.display="flex";loadCoverageClients();}
   async function unlock(){
     var v=$("pw").value.trim();
     if(!v){$("gate-err").textContent="Please enter the password.";return;}
     $("gate-err").textContent="Checking\u2026";
     if(!(await validatePassword(v))){$("gate-err").textContent="That password was not accepted. Please try again.";$("pw").value="";return;}
-    APP_PASSWORD=v; try{sessionStorage.setItem(KEY_STORE,v);}catch(e){}
-    $("gate-err").textContent=""; openApp();
+    APP_PASSWORD=v;try{sessionStorage.setItem(KEY_STORE,v);}catch(e){}
+    $("gate-err").textContent="";openApp();
   }
   $("unlock").addEventListener("click",unlock);
   $("pw").addEventListener("keydown",function(e){if(e.key==="Enter")unlock();});
   (async function auto(){
     var c="";
-    try{
-      var p=new URLSearchParams(location.search);
-      if(p.get("k")){c=p.get("k");p.delete("k");history.replaceState(null,"",location.pathname+(p.toString()?"?"+p.toString():"")+location.hash);}
-    }catch(e){}
+    try{var p=new URLSearchParams(location.search);if(p.get("k")){c=p.get("k");p.delete("k");history.replaceState(null,"",location.pathname+(p.toString()?"?"+p.toString():"")+location.hash);}}catch(e){}
     if(!c){try{c=sessionStorage.getItem(KEY_STORE)||"";}catch(e){}}
     if(!c)return;
     if(await validatePassword(c)){APP_PASSWORD=c;try{sessionStorage.setItem(KEY_STORE,c);}catch(e){}openApp();}
   })();
   function lockOut(){APP_PASSWORD="";try{sessionStorage.removeItem(KEY_STORE);}catch(e){}$("app").style.display="none";$("gate").style.display="flex";$("gate-err").textContent="That password was not accepted. Please try again.";}
 
-  /* Helpers to call the function */
-  async function api(body){
-    var r=await fetch(FN,{method:"POST",headers:{"content-type":"application/json","x-password":APP_PASSWORD},body:JSON.stringify(body)});
-    if(r.status===401){lockOut();throw new Error("UNAUTHORISED");}
-    return r;
-  }
-  async function ask(tier,system,prompt){
-    var r=await api({tier:tier,system:system,prompt:prompt});
+  async function api(body){var r=await fetch(FN,{method:"POST",headers:{"content-type":"application/json","x-password":APP_PASSWORD},body:JSON.stringify(body)});if(r.status===401){lockOut();throw new Error("UNAUTHORISED");}return r;}
+  async function ask(tier,system,prompt,images){
+    var body={tier:tier,system:system,prompt:prompt};if(images&&images.length)body.images=images;
+    var r=await api(body);
     if(!r.ok){var d=await r.json().catch(function(){return{};});throw new Error(d.error||("Request failed ("+r.status+")"));}
     var reader=r.body.getReader(),dec=new TextDecoder(),out="";
     while(true){var x=await reader.read();if(x.done)break;out+=dec.decode(x.value,{stream:true});}
     return out;
   }
   function extractJSON(t){var m=t.match(/\{[\s\S]*\}/);if(!m)throw new Error("No JSON found");return JSON.parse(m[0]);}
-  async function askJSON(tier,system,prompt){
-    var t=await ask(tier,system,prompt);
-    try{return extractJSON(t);}catch(e){
-      var t2=await ask(tier,system,prompt+"\n\nIMPORTANT: respond with ONLY the JSON object - no preamble, no markdown fences.");
-      return extractJSON(t2);
-    }
+  async function askJSON(tier,system,prompt,images){
+    var t=await ask(tier,system,prompt,images);
+    try{return extractJSON(t);}catch(e){var t2=await ask(tier,system,prompt+"\n\nIMPORTANT: respond with ONLY the JSON object - no preamble, no fences.",images);return extractJSON(t2);}
   }
 
-  var HOUSE='Write in British English. Use hyphens with spaces ( - ) never en or em dashes. No Oxford commas. Avoid AI cliches (never "delve", "landscape", "elevate", "seamless", "in today\'s fast-paced world"). Avoid neat rule-of-three sentence constructions. Plain confident agency voice, flowing prose. This is a client-facing monthly report from Pic PR. ';
+  var HOUSE='Write in British English. Use hyphens with spaces ( - ) never en or em dashes. No Oxford commas. Avoid AI cliches (never "delve", "landscape", "elevate", "seamless", "in today\'s fast-paced world"). Avoid neat rule-of-three constructions. Plain confident agency voice, flowing prose. This is a client-facing monthly report from Pic PR. Take the rough bullets given and write them up properly - do not simply repeat them. ';
   var NOSTATS='HARD RULE: never invent a statistic. Use ONLY numbers from the CONFIRMED FIGURES list, quoted exactly. If a figure is not confirmed, make the point without a number. ';
 
-  /* Coverage pull */
   var covClients=[];
   async function loadCoverageClients(){
-    try{
-      var r=await api({action:"coverage-list"});
-      var d=await r.json();
-      if(!r.ok)return;
-      covClients=d.clients||[];
-      $("covClients").innerHTML=covClients.map(function(c){return '<option value="'+esc(c.name)+'"></option>';}).join("");
-    }catch(e){}
+    try{var r=await api({action:"coverage-list"});var d=await r.json();if(!r.ok)return;covClients=d.clients||[];$("covClients").innerHTML=covClients.map(function(c){return '<option value="'+esc(c.name)+'"></option>';}).join("");}catch(e){}
   }
   $("pullBtn").addEventListener("click",async function(){
     clearError();
     var name=$("client").value.trim();
     if(!name){$("client").focus();showError("Type or pick the client first.");return;}
     var match=covClients.find(function(c){return c.name.toLowerCase()===name.toLowerCase();});
-    if(!match){$("pullNote").textContent="Not found in the Coverage Dashboard - fill the numbers in by hand.";return;}
+    if(!match){$("pullNote").textContent="Not in the Coverage Dashboard - fill the numbers in by hand.";return;}
     $("pullBtn").disabled=true;$("pullNote").textContent="Pulling\u2026";
     try{
-      var r=await api({action:"coverage-get",id:match.id});
-      var d=await r.json();
+      var r=await api({action:"coverage-get",id:match.id});var d=await r.json();
       if(!r.ok)throw new Error(d.error||"Could not load");
-      var arts=(d.client.articles||[]);
-      var mv=$("month").value; // yyyy-mm
-      var inMonth=arts.filter(function(a){
-        var dt=a.date||a.published||a.publishedAt||"";
-        return mv?String(dt).slice(0,7)===mv:true;
-      });
-      var use=inMonth.length?inMonth:arts;
-      var reach=0,daSum=0,daN=0;
-      use.forEach(function(a){
-        var rr=parseInt(String(a.reach||a.audience||"").replace(/[^0-9]/g,""),10); if(rr)reach+=rr;
-        var da=parseInt(String(a.da||a.domainAuthority||"").replace(/[^0-9]/g,""),10); if(da){daSum+=da;daN++;}
-      });
+      var arts=(d.client.articles||[]);var mv=$("month").value;
+      var inMonth=arts.filter(function(a){var dt=a.date||a.published||a.publishedAt||"";return mv?String(dt).slice(0,7)===mv:true;});
+      var use=inMonth.length?inMonth:arts;var reach=0,daSum=0,daN=0;
+      use.forEach(function(a){var rr=parseInt(String(a.reach||a.audience||"").replace(/[^0-9]/g,""),10);if(rr)reach+=rr;var da=parseInt(String(a.da||a.domainAuthority||"").replace(/[^0-9]/g,""),10);if(da){daSum+=da;daN++;}});
       $("nCoverage").value=String(use.length);
       if(reach)$("nReach").value=reach.toLocaleString("en-GB");
       if(daN)$("nDA").value=String(Math.round(daSum/daN));
-      $("pullNote").textContent=use.length+" articles pulled"+(inMonth.length?" for the selected month":" (no dates matched the month, so all articles counted)")+" - check the figures before building.";
-      flash("Coverage figures filled in from the dashboard");
-    }catch(e){
-      if(e.message!=="UNAUTHORISED")showError("Coverage pull failed: "+e.message);
-    }
+      $("pullNote").textContent=use.length+" articles pulled"+(inMonth.length?" for the month":" (no dates matched, all counted)")+" - check before building.";
+      flash("Coverage figures filled from the dashboard");
+    }catch(e){if(e.message!=="UNAUTHORISED")showError("Coverage pull failed: "+e.message);}
     $("pullBtn").disabled=false;
   });
 
-  /* Social grid */
+  var wShots=[];
+  var wDrop=$("wDrop"),wFile=$("wFile");
+  wDrop.addEventListener("click",function(){wFile.click();});
+  wDrop.addEventListener("dragover",function(e){e.preventDefault();wDrop.classList.add("on");});
+  wDrop.addEventListener("dragleave",function(){wDrop.classList.remove("on");});
+  wDrop.addEventListener("drop",function(e){e.preventDefault();wDrop.classList.remove("on");wTake(e.dataTransfer.files);});
+  wFile.addEventListener("change",function(){wTake(wFile.files);wFile.value="";});
+  function wTake(list){
+    Array.prototype.slice.call(list).slice(0,3-wShots.length).forEach(function(f){
+      if(!/^image\//.test(f.type))return;
+      var rd=new FileReader();
+      rd.onload=function(){wShots.push({media_type:f.type,data:String(rd.result).split(",")[1],name:f.name});wThumbs();};
+      rd.readAsDataURL(f);
+    });
+  }
+  function wThumbs(){$("wThumbs").innerHTML=wShots.map(function(s){return '<img src="data:'+s.media_type+';base64,'+s.data+'" title="'+esc(s.name)+'" />';}).join("");$("wReadBtn").disabled=!wShots.length;}
+  $("wReadBtn").addEventListener("click",async function(){
+    clearError();$("wReadBtn").disabled=true;$("wReadNote").textContent="Reading\u2026";
+    try{
+      var out=await askJSON("reader",'You read website analytics screenshots (GA4, Squarespace, WordPress and similar) and extract only clearly legible figures. Never guess.',
+        'Extract website performance figures as JSON: {"users":"new users if shown","returning":"returning users if shown","engage":"engagement rate or avg time if shown","sessions":"sessions if shown","note":"one short plain sentence on what stands out"}. Leave any field empty if not clearly legible. Respond with ONLY the JSON.',
+        wShots.map(function(s){return {media_type:s.media_type,data:s.data};}));
+      if(out.users)$("wUsers").value=out.users;
+      if(out.returning)$("wReturning").value=out.returning;
+      if(out.engage)$("wEngage").value=out.engage;
+      if(out.sessions)$("wSessions").value=out.sessions;
+      if(out.note&&!$("websiteBullets").value.trim())$("websiteBullets").value="- "+out.note;
+      $("wReadNote").textContent="Figures read - check them before building.";
+      flash("Website figures read from the screenshot");
+    }catch(e){if(e.message==="UNAUTHORISED"){lockOut();return;}$("wReadNote").textContent="Could not read: "+e.message;}
+    $("wReadBtn").disabled=false;
+  });
+
   var METRICS=["Followers","Views","Reactions","Engagement"];
   var PLATS=["fb","ig","li"];
+  var PLABEL={fb:"Facebook",ig:"Instagram",li:"LinkedIn"};
   (function buildSoc(){
     var g=$("socgrid");
     METRICS.forEach(function(m){
       var row='<span class="h" style="align-self:center">'+m+"</span>";
-      PLATS.forEach(function(p){
-        var id=p+m;
-        row+='<span class="cellpair"><input type="text" id="'+id+'" placeholder="\u2013" /><select id="'+id+'T"><option value="">\u2013</option><option value="up">\u25b2</option><option value="down">\u25bc</option></select></span>';
-      });
+      PLATS.forEach(function(p){var id=p+m;row+='<span class="cellpair"><input type="text" id="'+id+'" placeholder="\u2013" /><select id="'+id+'T"><option value="">\u2013</option><option value="up">\u25b2 up</option><option value="down">\u25bc down</option></select></span>';});
       g.insertAdjacentHTML("beforeend",row);
     });
   })();
 
-  /* Section toggles */
-  $("secAccount").addEventListener("change",function(){$("accountWrap").style.display=this.checked?"block":"none";});
-  $("secWebsite").addEventListener("change",function(){$("websiteWrap").style.display=this.checked?"block":"none";});
-  $("secSocial").addEventListener("change",function(){$("socialWrap").style.display=this.checked?"block":"none";});
+  var TOG=[["secAccount","blkAccount"],["secPR","blkPR"],["secDesign","blkDesign"],["secStrategy","blkStrategy"],["secWebsite","blkWebsite"],["secSocial","blkSocial"]];
+  TOG.forEach(function(t){$(t[0]).addEventListener("change",function(){$(t[1]).style.display=this.checked?"block":"none";});});
 
-  /* Gather inputs */
   function inputs(){
-    var mv=$("month").value;
-    var monthName="";
+    var mv=$("month").value,monthName="";
     if(mv){var dd=new Date(mv+"-01T12:00:00");monthName=dd.toLocaleDateString("en-GB",{month:"long",year:"numeric"});}
-    var soc={};
-    PLATS.forEach(function(p){soc[p]={};METRICS.forEach(function(m){soc[p][m]={v:$(p+m).value.trim(),t:$(p+m+"T").value};});});
+    var soc={};PLATS.forEach(function(p){soc[p]={};METRICS.forEach(function(m){soc[p][m]={v:$(p+m).value.trim(),t:$(p+m+"T").value};});});
     return {
       client:$("client").value.trim(),month:monthName,preparedBy:$("preparedBy").value.trim(),
+      on:{account:$("secAccount").checked,pr:$("secPR").checked,design:$("secDesign").checked,strategy:$("secStrategy").checked,website:$("secWebsite").checked,social:$("secSocial").checked},
       releasesN:$("nReleases").value.trim(),coverageN:$("nCoverage").value.trim(),reach:$("nReach").value.trim(),da:$("nDA").value.trim(),awards:$("nAwards").value.trim(),covUrl:$("covUrl").value.trim(),
-      activity:$("activity").value.trim(),releases:$("releases").value.split("\n").map(function(s){return s.trim();}).filter(Boolean),
+      prBullets:$("prBullets").value.trim(),
+      releases:$("releases").value.split("\n").map(function(s){return s.trim();}).filter(Boolean),
       covBreak:$("covBreak").value.split("\n").map(function(s){return s.trim();}).filter(Boolean),
-      account:$("secAccount").checked?$("accountNotes").value.trim():"",
-      website:$("secWebsite").checked?{users:$("wUsers").value.trim(),returning:$("wReturning").value.trim(),engage:$("wEngage").value.trim(),sessions:$("wSessions").value.trim(),notes:$("wNotes").value.trim()}:null,
-      social:$("secSocial").checked?{grid:soc,notes:$("socNotes").value.trim()}:null
+      accountBullets:$("accountBullets").value.trim(),
+      designBullets:$("designBullets").value.trim(),
+      strategyBullets:$("strategyBullets").value.trim(),
+      website:{users:$("wUsers").value.trim(),returning:$("wReturning").value.trim(),engage:$("wEngage").value.trim(),sessions:$("wSessions").value.trim(),bullets:$("websiteBullets").value.trim()},
+      social:{grid:soc,bullets:$("socialBullets").value.trim()}
     };
   }
   function confirmedFigures(i){
     var f=[];
-    if(i.releasesN)f.push("Press releases drafted: "+i.releasesN);
-    if(i.coverageN)f.push("Pieces of coverage: "+i.coverageN);
-    if(i.reach)f.push("Potential audience reach: "+i.reach);
-    if(i.da)f.push("Average domain authority: "+i.da);
-    if(i.awards)f.push("Award submissions: "+i.awards);
-    if(i.website){["users","returning","engage","sessions"].forEach(function(k){if(i.website[k])f.push("Website "+k+": "+i.website[k]);});}
-    if(i.social){PLATS.forEach(function(p){METRICS.forEach(function(m){var c=i.social.grid[p][m];if(c.v)f.push(({fb:"Facebook",ig:"Instagram",li:"LinkedIn"})[p]+" "+m.toLowerCase()+": "+c.v+(c.t?(" ("+c.t+")"):""));});});}
-    i.covBreak.forEach(function(l){f.push("Coverage breakdown line: "+l);});
+    if(i.on.pr){
+      if(i.releasesN)f.push("Press releases drafted: "+i.releasesN);
+      if(i.coverageN)f.push("Pieces of coverage: "+i.coverageN);
+      if(i.reach)f.push("Potential audience reach: "+i.reach);
+      if(i.da)f.push("Average domain authority: "+i.da);
+      if(i.awards)f.push("Award submissions: "+i.awards);
+      i.covBreak.forEach(function(l){f.push("Coverage breakdown line: "+l);});
+    }
+    if(i.on.website){["users","returning","engage","sessions"].forEach(function(k){if(i.website[k])f.push("Website "+k+": "+i.website[k]);});}
+    if(i.on.social){PLATS.forEach(function(p){METRICS.forEach(function(m){var c=i.social.grid[p][m];if(c.v)f.push(PLABEL[p]+" "+m.toLowerCase()+": "+c.v+(c.t?(" ("+c.t+")"):""));});});}
     return f;
   }
 
@@ -424,49 +478,35 @@
     if(!i.month){$("month").focus();showError("Pick the reporting month.");return;}
     $("genBtn").disabled=true;
     var figs=confirmedFigures(i);
-    var ctx="CLIENT: "+i.client+"\nREPORTING MONTH: "+i.month+
-      "\nACTIVITY NOTES: "+(i.activity||"none given")+
-      (i.releases.length?("\nPRESS RELEASES: "+i.releases.join("; ")):"")+
-      (i.account?("\nACCOUNT MANAGEMENT NOTES: "+i.account):"")+
-      (i.website&&i.website.notes?("\nWEBSITE NOTES: "+i.website.notes):"")+
-      (i.social&&i.social.notes?("\nSOCIAL NOTES: "+i.social.notes):"")+
+    var services=Object.keys(i.on).filter(function(k){return i.on[k];}).join(", ");
+    var ctx="CLIENT: "+i.client+"\nREPORTING MONTH: "+i.month+"\nSERVICES REPORTED: "+services+
+      (i.on.pr?("\nPR BULLETS: "+(i.prBullets||"none")+(i.releases.length?("\nPRESS RELEASES: "+i.releases.join("; ")):"")):"")+
+      (i.on.account?("\nACCOUNT BULLETS: "+(i.accountBullets||"none")):"")+
+      (i.on.design?("\nDESIGN BULLETS: "+(i.designBullets||"none")):"")+
+      (i.on.strategy?("\nSTRATEGY BULLETS: "+(i.strategyBullets||"none")):"")+
+      (i.on.website?("\nWEBSITE BULLETS: "+(i.website.bullets||"none")):"")+
+      (i.on.social?("\nSOCIAL BULLETS: "+(i.social.bullets||"none")):"")+
       "\n\nCONFIRMED FIGURES (the only numbers you may use, quoted exactly):\n"+(figs.length?figs.map(function(x){return "- "+x;}).join("\n"):"(none)");
 
     try{
       setStatus("Writing the overview and key highlights");
       var overview=await askJSON("writer",'You write the OVERVIEW page of a Pic PR monthly client report. '+HOUSE+NOSTATS,
-        ctx+'\n\nJSON only: {"intro":["3 short paragraphs: what the report covers and the retained areas, how the account ran this month from the activity notes, then the month\'s PR performance using confirmed figures"],"highlights":["4 to 6 crisp highlight bullets drawing on the activity notes and confirmed figures"]}');
+        ctx+'\n\nJSON only: {"intro":["3 short paragraphs: what the report covers and the services reported this month, how the account ran, then the month\'s headline performance using confirmed figures"],"highlights":["4 to 6 crisp highlight bullets drawn from the bullets and confirmed figures across all reported services"]}');
 
-      var account=null;
-      if(i.account){
-        setStatus("Writing account management");
-        account=await askJSON("writer",'You write the ACCOUNT MANAGEMENT section of a Pic PR monthly report. '+HOUSE+NOSTATS,
-          ctx+'\n\nJSON only: {"paras":["2 short paragraphs on how the account was managed this month, from the account management notes"]}');
+      var sections={};
+      async function writeSection(key,title,extra){
+        setStatus("Writing "+title.toLowerCase());
+        sections[key]=await askJSON("writer",'You write the '+title.toUpperCase()+' section of a Pic PR monthly report. '+HOUSE+NOSTATS,ctx+'\n\n'+extra);
       }
+      if(i.on.account) await writeSection("account","Account management",'JSON only: {"paras":["2 short paragraphs writing up the account bullets - how the account was managed this month"]}');
+      if(i.on.pr)      await writeSection("pr","PR",'JSON only: {"paras":["2 paragraphs writing up the PR bullets - how the month ran and what was drafted and entered"]}');
+      if(i.on.design)  await writeSection("design","Design",'JSON only: {"paras":["2 short paragraphs writing up the design bullets - what was created and its purpose"]}');
+      if(i.on.strategy)await writeSection("strategy","Strategy",'JSON only: {"paras":["2 short paragraphs writing up the strategy bullets - the thinking done and where it takes the account"]}');
+      if(i.on.website) await writeSection("website","Website",'JSON only: {"paras":["2 short paragraphs interpreting the confirmed website figures and bullets - what moved and what it suggests"]}');
+      if(i.on.pr)      sections.cov=await askJSON("writer",'You write the COVERAGE breakdown of a Pic PR monthly report. '+HOUSE+NOSTATS,ctx+'\n\nJSON only: {"bullets":["one bullet per confirmed coverage breakdown line, in the form Type (Reach): note - reach exactly as confirmed"]}');
+      if(i.on.social)  await writeSection("social","Social",'JSON only: {"paras":["2 short paragraphs on the month\'s social performance from the confirmed platform figures and bullets - name what rose and what dipped honestly"]}');
 
-      var website=null;
-      if(i.website){
-        setStatus("Writing website performance");
-        website=await askJSON("writer",'You write the WEBSITE PERFORMANCE section of a Pic PR monthly report. '+HOUSE+NOSTATS,
-          ctx+'\n\nJSON only: {"paras":["2 short paragraphs interpreting the confirmed website figures and notes - what moved and what it suggests"]}');
-      }
-
-      setStatus("Writing the PR team pages");
-      var pr=await askJSON("writer",'You write the PR TEAM execution section of a Pic PR monthly report. '+HOUSE+NOSTATS,
-        ctx+'\n\nJSON only: {"paras":["2 paragraphs: how the month\'s PR ran (from activity notes, e.g. story sourcing and calls) and what was drafted and entered (awards schemes and categories if noted)"]}');
-
-      setStatus("Writing the coverage breakdown");
-      var cov=await askJSON("writer",'You write the COVERAGE page of a Pic PR monthly report. '+HOUSE+NOSTATS,
-        ctx+'\n\nJSON only: {"bullets":["one bullet per confirmed coverage breakdown line, in the form Type (Reach): note - keep the reach figure exactly as confirmed"]}');
-
-      var social=null;
-      if(i.social){
-        setStatus("Writing the social summary");
-        social=await askJSON("writer",'You write the SOCIAL TEAM section of a Pic PR monthly report. '+HOUSE+NOSTATS,
-          ctx+'\n\nJSON only: {"paras":["2 short paragraphs on the month\'s social performance from the confirmed platform figures and the social notes - name what rose and what dipped honestly"]}');
-      }
-
-      docData={inp:i,figs:figs,overview:overview,account:account,website:website,pr:pr,cov:cov,social:social,generated:new Date()};
+      docData={inp:i,figs:figs,overview:overview,sections:sections,generated:new Date()};
       renderDoc(docData);
       setStatus("Report built - running the figures audit");
       await runAudit();
@@ -489,104 +529,92 @@
       var issues=out.issues||[];
       var old=$("auditBox");if(old)old.remove();
       var div=document.createElement("div");div.id="auditBox";
-      if(!issues.length){
-        div.innerHTML='<div class="panel" style="border-color:#bcd9c8"><h2 style="font-size:16px">Figures audit - clean</h2><p class="sub" style="margin:0">Every number matches a confirmed figure.</p></div>';
-      }else{
-        div.innerHTML='<div class="panel" style="border-color:#eecfc9"><h2 style="font-size:16px;color:var(--flag)">Figures audit - '+issues.length+' to check</h2><p class="sub">These numbers are not in what you confirmed. Edit or remove them before this reaches the client.</p>'+issues.map(function(x){return '<p style="margin:8px 0"><span class="flagged">'+esc(x.quote)+"</span> - "+esc(x.why)+"</p>";}).join("")+"</div>";
-      }
+      if(!issues.length){div.innerHTML='<div class="panel" style="border-color:#bcd9c8"><h2 style="font-size:16px">Figures audit - clean</h2><p class="sub" style="margin:0">Every number matches a confirmed figure.</p></div>';}
+      else{div.innerHTML='<div class="panel" style="border-color:#eecfc9"><h2 style="font-size:16px;color:var(--flag)">Figures audit - '+issues.length+' to check</h2><p class="sub">These numbers are not in what you confirmed. Edit or remove them before this reaches the client.</p>'+issues.map(function(x){return '<p style="margin:8px 0"><span class="flagged">'+esc(x.quote)+"</span> - "+esc(x.why)+"</p>";}).join("")+"</div>";}
       $("doc").insertBefore(div,$("pages"));
     }catch(e){}
   }
 
-  /* Render the report in the template structure */
+  function makeEditable(){
+    $("pages").querySelectorAll("p,li,h3,td,th,.tile .v,.tile .k,.cover-title,.cover-month,.covlink,.footer-line,.thanks-contact,.prep").forEach(function(el){el.setAttribute("contenteditable","true");});
+  }
+
   function renderDoc(d){
-    var i=d.inp;
+    var i=d.inp,S=d.sections;
     var monthUp=i.month.toUpperCase();
     var today=d.generated.toLocaleDateString("en-GB",{day:"2-digit",month:"2-digit",year:"2-digit"});
+    var paras=function(a){return (a||[]).map(function(p){return "<p>"+esc(p)+"</p>";}).join("");};
     var html="";
 
-    /* Cover */
     html+='<div class="rp navy"><div class="inner" style="padding-top:80px;padding-bottom:80px">'+
       '<h2 class="cover-title">Your<br />monthly<br /><span class="skyline">report</span></h2>'+
       '<div class="cover-month">'+esc(monthUp)+"</div>"+
-      '<p style="font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;opacity:.8;margin-top:40px">Prepared for '+esc(i.client)+" by Pic PR</p>"+
+      '<p style="font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;opacity:.8;margin-top:40px">Prepared for '+esc(i.client)+" by Pic PR</p>"+
       "</div></div>";
 
-    /* Overview */
     html+='<div class="rp plain"><div class="inner"><h3 class="rph" style="color:var(--navy)">Overview</h3><div class="rprule" style="background:var(--navy)"></div>'+
-      (d.overview.intro||[]).map(function(p){return "<p>"+esc(p)+"</p>";}).join("")+
+      paras(d.overview.intro)+
       '<div class="hl"><h4>Key Highlights:</h4><ul>'+(d.overview.highlights||[]).map(function(h){return "<li>"+esc(h)+"</li>";}).join("")+"</ul></div>"+
       '<div style="display:flex;gap:20px;flex-wrap:wrap;align-items:stretch">'+
       '<div class="strap" style="flex:1;min-width:260px">The following sections breakdown the specific deliverables, statistical performance and strategic execution of each department.</div>'+
-      '<div class="prep"><b>Prepared by:</b> '+esc(i.preparedBy||"Pic PR")+'<br /><b>Prepared for:</b> '+esc(i.client)+'<br /><b>Date:</b> '+esc(today)+"</div>"+
-      "</div></div></div>";
+      '<div class="prep"><b>Prepared by:</b> '+esc(i.preparedBy||"Pic PR")+'<br /><b>Prepared for:</b> '+esc(i.client)+'<br /><b>Date:</b> '+esc(today)+"</div></div></div></div>";
 
-    /* Account management */
-    if(d.account){
-      html+='<div class="rp plain"><div class="inner"><h3 class="rph" style="color:var(--navy)">Account management</h3><div class="rprule" style="background:var(--navy)"></div>'+
-        (d.account.paras||[]).map(function(p){return "<p>"+esc(p)+"</p>";}).join("")+"</div></div>";
+    if(S.account) html+=plainPage("Account management",paras(S.account.paras));
+    if(S.strategy) html+=plainPage("Strategy",paras(S.strategy.paras));
+
+    if(i.on.pr && S.pr){
+      var tiles=[];
+      if(i.awards)tiles.push([i.awards,"Award submissions"]);
+      if(i.coverageN)tiles.push([i.coverageN,"Coverage"]);
+      if(i.da)tiles.push([i.da,"Avg domain authority"]);
+      if(i.reach)tiles.push([i.reach,"Potential audience reach"]);
+      html+='<div class="rp dark"><div class="inner"><h3 class="rph">PR team</h3><div class="rprule"></div>'+paras(S.pr.paras)+
+        (i.covUrl?'<p style="margin:26px 0 6px"><a class="covlink" href="'+esc(i.covUrl)+'" target="_blank" rel="noopener">See full coverage table here \u2197</a></p>':"")+
+        (tiles.length?('<div class="tiles">'+tiles.map(function(x){return '<div class="tile"><div class="v">'+esc(x[0])+'</div><div class="k">'+esc(x[1])+"</div></div>";}).join("")+"</div>"):"")+
+        (i.releases.length?('<p style="font-weight:800;margin-top:10px">Press releases included:</p><ul>'+i.releases.map(function(r){return "<li>"+esc(r)+"</li>";}).join("")+"</ul>"):"")+
+        "</div></div>";
+      if(S.cov&&(S.cov.bullets||[]).length){
+        html+='<div class="rp dark"><div class="inner"><h3 class="rph">Coverage</h3><div class="rprule"></div>'+
+          '<p style="font-family:var(--disp);text-transform:uppercase;font-size:16px;letter-spacing:.02em">Coverage breakdown by media type:</p><ul>'+
+          (S.cov.bullets||[]).map(function(b){return '<li style="margin:0 0 12px">'+esc(b)+"</li>";}).join("")+"</ul></div></div>";
+      }
     }
 
-    /* Website */
-    if(d.website&&i.website){
+    if(S.design) html+=plainPage("Design",paras(S.design.paras));
+
+    if(i.on.website && S.website){
       var wt=[["New users",i.website.users],["Returning users",i.website.returning],["Engagement",i.website.engage],["Sessions",i.website.sessions]].filter(function(x){return x[1];});
       html+='<div class="rp plain"><div class="inner"><h3 class="rph" style="color:var(--navy)">Website performance</h3><div class="rprule" style="background:var(--navy)"></div>'+
         (wt.length?('<div class="tiles">'+wt.map(function(x){return '<div class="tile"><div class="v">'+esc(x[1])+'</div><div class="k">'+esc(x[0])+"</div></div>";}).join("")+"</div>"):"")+
-        (d.website.paras||[]).map(function(p){return "<p>"+esc(p)+"</p>";}).join("")+"</div></div>";
+        paras(S.website.paras)+"</div></div>";
     }
 
-    /* PR team */
-    var tiles=[];
-    if(i.awards)tiles.push([i.awards,"Award submissions"]);
-    if(i.coverageN)tiles.push([i.coverageN,"Coverage"]);
-    if(i.da)tiles.push([i.da,"Avg domain authority"]);
-    if(i.reach)tiles.push([i.reach,"Potential audience reach"]);
-    html+='<div class="rp dark"><div class="inner"><h3 class="rph">PR team</h3><div class="rprule"></div>'+
-      (d.pr.paras||[]).map(function(p){return "<p>"+esc(p)+"</p>";}).join("")+
-      (i.covUrl?'<p style="margin:26px 0 6px"><a class="covlink" href="'+esc(i.covUrl)+'" target="_blank" rel="noopener">See full coverage table here \u2197</a></p>':"")+
-      (tiles.length?('<div class="tiles">'+tiles.map(function(x){return '<div class="tile"><div class="v">'+esc(x[0])+'</div><div class="k">'+esc(x[1])+"</div></div>";}).join("")+"</div>"):"")+
-      (i.releases.length?('<p style="font-weight:800;margin-top:10px">Press releases included:</p><ul>'+i.releases.map(function(r){return "<li>"+esc(r)+"</li>";}).join("")+"</ul>"):"")+
-      "</div></div>";
-
-    /* Coverage */
-    if((d.cov.bullets||[]).length){
-      html+='<div class="rp dark"><div class="inner"><h3 class="rph">Coverage</h3><div class="rprule"></div>'+
-        '<p style="font-family:var(--disp);text-transform:uppercase;font-size:15px;letter-spacing:.02em">Coverage breakdown by media type:</p><ul>'+
-        (d.cov.bullets||[]).map(function(b){return '<li style="margin:0 0 12px">'+esc(b)+"</li>";}).join("")+"</ul>"+
-        '<p class="hint" style="color:rgba(255,255,255,.6)">Drop article screenshots alongside this page in the designed version.</p>'+
-        "</div></div>";
-    }
-
-    /* Social */
-    if(d.social&&i.social){
+    if(i.on.social && S.social){
       var g=i.social.grid;
-      function cell(p,m){var c=g[p][m];if(!c.v)return "<td>\u2013</td>";return '<td class="'+(c.t==="up"?"up":c.t==="down"?"down":"")+'">'+esc(c.v)+"</td>";}
-      html+='<div class="rp navy"><div class="inner"><h3 class="rph">Social team</h3><div class="rprule"></div>'+
-        (d.social.paras||[]).map(function(p){return "<p>"+esc(p)+"</p>";}).join("")+
+      var cell=function(p,m){var c=g[p][m];if(!c.v)return "<td>\u2013</td>";return '<td class="'+(c.t==="up"?"up":c.t==="down"?"down":"")+'">'+esc(c.v)+"</td>";};
+      html+='<div class="rp navy"><div class="inner"><h3 class="rph">Social team</h3><div class="rprule"></div>'+paras(S.social.paras)+
         '<table class="soctab"><tr><th></th><th>Facebook</th><th>Instagram</th><th>LinkedIn</th></tr>'+
-        METRICS.map(function(m){return "<tr><th>"+esc(m.toUpperCase())+"</th>"+cell("fb",m)+cell("ig",m)+cell("li",m)+"</tr>";}).join("")+
-        "</table></div></div>";
+        METRICS.map(function(m){return "<tr><th>"+esc(m.toUpperCase())+"</th>"+cell("fb",m)+cell("ig",m)+cell("li",m)+"</tr>";}).join("")+"</table></div></div>";
     }
 
-    /* Thank you */
-    html+='<div class="rp navy"><div class="inner" style="padding-top:70px;padding-bottom:70px"><h3 class="rph" style="font-size:clamp(34px,5vw,52px)">Thank you</h3><div class="rprule"></div>'+
+    html+='<div class="rp navy"><div class="inner" style="padding-top:64px;padding-bottom:64px">'+
+      '<img class="thanks-logo" src="/picpr-logo.png" alt="Pic PR" />'+
+      '<h3 class="rph" style="font-size:clamp(34px,5vw,52px)">Thank you</h3><div class="rprule"></div>'+
       '<p style="max-width:64ch;opacity:.9">Thank you for taking the time to read your report - just let me know if you have any questions or if you\u2019d like to discuss the findings further.</p>'+
-      '<div class="thanks-contact">Ashton Road, Beckford, Nr. Cheltenham, GL20 7AU<br />+44 (0)1386 882 474<br />www.picpr.com</div>'+
-      "</div></div>";
+      '<div class="thanks-contact">Ashton Road, Beckford, Nr. Cheltenham, GL20 7AU<br />+44 (0)1386 882 474<br />www.picpr.com</div></div></div>';
 
     $("pages").innerHTML=html;
     $("doc").style.display="block";
+    makeEditable();
     var old=$("auditBox");if(old)old.remove();
   }
+  function plainPage(title,inner){return '<div class="rp plain"><div class="inner"><h3 class="rph" style="color:var(--navy)">'+esc(title)+'</h3><div class="rprule" style="background:var(--navy)"></div>'+inner+"</div></div>";}
 
-  /* Toolbar */
-  var editing=false;
+  var showedit=false;
   $("editBtn").addEventListener("click",function(){
-    editing=!editing;
-    $("pages").querySelectorAll("p,li,h3,td,div.v").forEach(function(el){el.contentEditable=editing;});
-    $("doc").classList.toggle("editing",editing);
-    $("editBtn").textContent=editing?"Done editing":"Edit report";
-    flash(editing?"Click any text to change it":"Edits kept");
+    showedit=!showedit;
+    $("doc").classList.toggle("showedit",showedit);
+    $("editBtn").textContent=showedit?"Hide edit outline":"Show edit outline";
   });
   $("copyBtn").addEventListener("click",function(){
     var range=document.createRange();range.selectNode($("pages"));
@@ -596,46 +624,28 @@
   });
   $("printBtn").addEventListener("click",function(){window.print();});
 
-  /* Library */
   $("saveBtn").addEventListener("click",async function(){
     if(!docData)return;
     $("saveBtn").disabled=true;$("saveBtn").textContent="Saving\u2026";
     try{
       var r=await api({action:"save",client:docData.inp.client,html:$("pages").innerHTML,meta:{month:docData.inp.month,preparedBy:docData.inp.preparedBy,type:"monthly-report"}});
-      var d=await r.json();
-      if(!r.ok)throw new Error(d.error||"Save failed");
+      var d=await r.json();if(!r.ok)throw new Error(d.error||"Save failed");
       flash("Saved to the library");
     }catch(e){if(e.message!=="UNAUTHORISED")showError("Could not save: "+e.message);}
     $("saveBtn").disabled=false;$("saveBtn").textContent="Save to library";
   });
   $("libBtn").addEventListener("click",async function(){
-    var lib=$("library");
-    lib.innerHTML='<p class="hint">Looking up past reports\u2026</p>';
+    var lib=$("library");lib.innerHTML='<p class="hint">Looking up past reports\u2026</p>';
     try{
-      var r=await api({action:"list",client:$("client").value.trim()||undefined});
-      var d=await r.json();
+      var r=await api({action:"list",client:$("client").value.trim()||undefined});var d=await r.json();
       if(!r.ok)throw new Error(d.error||"List failed");
       var docs=d.docs||[];
       if(!docs.length){lib.innerHTML='<p class="hint">Nothing saved yet'+($("client").value.trim()?" for "+esc($("client").value.trim()):"")+".</p>";return;}
-      lib.innerHTML=docs.map(function(x){
-        var when=(x.meta&&x.meta.month)?x.meta.month:new Date(x.created_at).toLocaleDateString("en-GB",{month:"long",year:"numeric"});
-        return '<div class="item"><span><strong>'+esc(x.client)+"</strong> &nbsp;<span style='color:var(--ink-soft)'>- "+esc(when)+"</span></span><button class='btn ghost' data-open='"+esc(x.id)+"'>Open</button></div>";
-      }).join("");
-      lib.querySelectorAll("[data-open]").forEach(function(b){
-        b.addEventListener("click",async function(){
-          b.textContent="Loading\u2026";
-          try{
-            var rr=await api({action:"get",id:b.getAttribute("data-open")});
-            var dd=await rr.json();
-            if(!rr.ok)throw new Error(dd.error||"Load failed");
-            $("pages").innerHTML=dd.doc.html;
-            docData=docData||{inp:inputs(),figs:[]};
-            $("doc").style.display="block";
-            lib.innerHTML="";
-            $("doc").scrollIntoView({behavior:"smooth"});
-          }catch(e){b.textContent="Could not load";}
-        });
-      });
+      lib.innerHTML=docs.map(function(x){var when=(x.meta&&x.meta.month)?x.meta.month:new Date(x.created_at).toLocaleDateString("en-GB",{month:"long",year:"numeric"});return '<div class="item"><span><strong>'+esc(x.client)+"</strong> &nbsp;<span style='color:var(--ink-soft)'>- "+esc(when)+"</span></span><button class='btn ghost' data-open='"+esc(x.id)+"'>Open</button></div>";}).join("");
+      lib.querySelectorAll("[data-open]").forEach(function(b){b.addEventListener("click",async function(){
+        b.textContent="Loading\u2026";
+        try{var rr=await api({action:"get",id:b.getAttribute("data-open")});var dd=await rr.json();if(!rr.ok)throw new Error(dd.error||"Load failed");$("pages").innerHTML=dd.doc.html;makeEditable();docData=docData||{inp:inputs(),figs:[]};$("doc").style.display="block";lib.innerHTML="";$("doc").scrollIntoView({behavior:"smooth"});}catch(e){b.textContent="Could not load";}
+      });});
     }catch(e){if(e.message!=="UNAUTHORISED")lib.innerHTML='<p class="hint">Library unavailable: '+esc(e.message)+"</p>";}
   });
 
