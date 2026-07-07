@@ -1,3 +1,39 @@
+import { timingSafeEqual } from "node:crypto";
+
+function safeEqual(a, b) {
+  const A = Buffer.from(String(a || ""));
+  const B = Buffer.from(String(b || ""));
+  if (A.length !== B.length) { timingSafeEqual(A, A); return false; }
+  return timingSafeEqual(A, B);
+}
+
+async function rateLimited(request, context, name, cap) {
+  // Shared bump_rate limiter - fails open so a database blip never blocks work.
+  const ip = (context && context.ip) || request.headers.get("x-nf-client-connection-ip") || "unknown";
+  const base = process.env.SUPABASE_URL, sk = process.env.SUPABASE_SERVICE_KEY;
+  if (!base || !sk) return false;
+  try {
+    const r = await fetch(base + "/rest/v1/rpc/bump_rate", {
+      method: "POST",
+      headers: { "apikey": sk, "Authorization": "Bearer " + sk, "Content-Type": "application/json" },
+      body: JSON.stringify({ p_key: name + ":" + ip, p_window_seconds: 600 })
+    });
+    if (!r.ok) return false;
+    return (await r.json()) > cap;
+  } catch { return false; }
+}
+
+// Guard rails on what the page can send. The prompts are assembled by the
+// page from confirmed inputs (screenshots the team has approved, figures they
+// have confirmed), so they are dynamic by design - but nothing pathological
+// should ever reach the API, and a leaked password should not buy unlimited
+// tokens. Rotating the password plus these caps plus per-provider spend
+// limits in each console keep the blast radius small.
+const MAX_PROMPT_CHARS = 60000;
+const MAX_SYSTEM_CHARS = 12000;
+const MAX_IMAGES = 8;
+const MAX_IMAGE_B64 = 8000000; // ~6MB per image once decoded
+
 // netlify/functions/report.mjs
 // The engine room of the Monthly Report Generator. Reports are a recurring
 // monthly cost, so this runs almost entirely on Sonnet - it is assembling and
@@ -21,15 +57,17 @@ const TIERS = {
   auditor: { model: "claude-haiku-4-5-20251001", maxTokens: 1200 }
 };
 
-export default async (request) => {
+export default async (request, context) => {
   if (request.method !== "POST") return json({ error: "Method not allowed" }, 405);
 
   let body;
   try { body = await request.json(); } catch { return json({ error: "Bad request" }, 400); }
 
+  if (await rateLimited(request, context, "gen-auth", 300)) return json({ error: "Too many requests. Try again shortly." }, 429);
+
   const sitePassword = process.env.SITE_PASSWORD;
   const sent = request.headers.get("x-password") || body.password;
-  if (!sitePassword || sent !== sitePassword) return json({ error: "Unauthorised" }, 401);
+  if (!sitePassword || !safeEqual(sent, sitePassword)) return json({ error: "Unauthorised" }, 401);
 
   if (body.ping) return json({ ok: true });
 
@@ -94,16 +132,21 @@ export default async (request) => {
   if (!apiKey) return json({ error: "ANTHROPIC_API_KEY is not set in Netlify" }, 500);
 
   const tier = TIERS[body.tier] || TIERS.writer;
+
+  // Guard rails on the inputs before anything reaches the API.
+  const promptText = String(body.prompt || "").slice(0, MAX_PROMPT_CHARS);
+  const systemText = String(body.system || "").slice(0, MAX_SYSTEM_CHARS);
   let messages;
   if (body.images && Array.isArray(body.images) && body.images.length) {
-    const content = body.images.map(img => ({
+    const imgs = body.images.slice(0, MAX_IMAGES).filter(img => img && typeof img.data === "string" && img.data.length <= MAX_IMAGE_B64);
+    const content = imgs.map(img => ({
       type: "image",
       source: { type: "base64", media_type: img.media_type || "image/png", data: img.data }
     }));
-    content.push({ type: "text", text: body.prompt || "" });
+    content.push({ type: "text", text: promptText });
     messages = [{ role: "user", content }];
   } else {
-    messages = [{ role: "user", content: body.prompt || "" }];
+    messages = [{ role: "user", content: promptText }];
   }
   const upstream = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
@@ -112,7 +155,9 @@ export default async (request) => {
       model: tier.model,
       max_tokens: tier.maxTokens,
       stream: true,
-      system: body.system || "",
+      // The long house-style system prompt is identical call to call, so
+      // marking it cacheable cuts its input cost by 90% on repeats.
+      system: systemText ? [{ type: "text", text: systemText, cache_control: { type: "ephemeral" } }] : "",
       messages
     })
   });
